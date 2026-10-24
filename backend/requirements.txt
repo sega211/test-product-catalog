@@ -7,3 +7,6 @@ alembic
 pydantic-settings
 pytest
 httpx
+boto3
+Pillow
+python-multipart

@@ -9,3 +9,4 @@ class Product(Base):
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
     title: Mapped[str] = mapped_column(String(255), nullable=False)
+    image_key: Mapped[str | None] = mapped_column(String(512), nullable=True)
