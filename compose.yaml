@@ -53,6 +53,19 @@ services:
       minio:
         condition: service_healthy
 
+  bot:
+    build:
+      context: .
+      dockerfile: bot/Dockerfile
+    restart: unless-stopped
+    env_file:
+      - bot/.env
+    environment:
+      API_BASE_URL: http://backend:8010
+    depends_on:
+      backend:
+        condition: service_started
+
 volumes:
   postgres_data:
   minio_data:
