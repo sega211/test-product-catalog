@@ -40,7 +40,7 @@ def load_settings() -> Settings:
     ).strip().rstrip("/")
 
     if not api_base_url:
-        raise RuntimeError("Не задан API_BASE_URL — адрес backend")
+        raise RuntimeError("Не задан API_BASE_URL — адрес backend сервера")
 
     return Settings(
         bot_token=token,

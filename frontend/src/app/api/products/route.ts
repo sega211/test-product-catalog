@@ -21,7 +21,7 @@ export async function GET() {
 
     if (!Array.isArray(products)) {
       return NextResponse.json(
-        { error: "Backend вернул некорректный список товаров" },
+        { error: "Сервер вернул некорректный список товаров" },
         { status: 502 },
       );
     }
@@ -31,7 +31,7 @@ export async function GET() {
     });
   } catch {
     return NextResponse.json(
-      { error: "Backend временно недоступен" },
+      { error: "Сервер временно недоступен" },
       { status: 502 },
     );
   }
