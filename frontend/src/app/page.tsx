@@ -74,7 +74,14 @@ export default function Home() {
         </Link>
         <span className={styles.headerLabel}>Коллекция товаров</span>
       </header>
-
+      <aside className={styles.demoNotice} aria-label="О проекте">
+        <span className={styles.demoNoticeLabel}>
+          Демонстрационный проект
+        </span>
+        <p>
+          Сайт создан в рамках тестового задания и демонстрирует реализацию каталога товаров с интеграцией Telegram-бота и объектного хранилища MinIO. Представленные товары и изображения используются в демонстрационных целях.
+        </p>
+      </aside>
       <section className={styles.hero}>
         <p className={styles.eyebrow}>НАША КОЛЛЕКЦИЯ</p>
         <h1>Товары</h1>
@@ -162,7 +169,89 @@ export default function Home() {
       </section>
 
       <footer className={styles.footer}>
-        Каталог товаров
+        <div className={styles.footerCard}>
+          <h2 className={styles.footerTitle}>
+            Контакты и площадки
+          </h2>
+
+          <div className={styles.socialLinks}>
+            <a
+              href="https://mnogodeto4ka.ru"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialLink}
+              title="Основной сайт"
+            >
+              <span className={styles.socialIcon} aria-hidden="true">
+                ↗
+              </span>
+              <span className={styles.socialText}>
+                <strong>Основной сайт</strong>
+                <span>Мой сайт и портфолио</span>
+              </span>
+            </a>
+
+            <a
+              href="https://vk.com/mnogodeto4ka_web"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialLink}
+              title="ВКонтакте"
+            >
+              <span className={styles.socialIcon} aria-hidden="true">
+                VK
+              </span>
+              <span className={styles.socialText}>
+                <strong>ВКонтакте</strong>
+                <span>Для быстрых обсуждений</span>
+              </span>
+            </a>
+
+            <a
+              href="https://dzen.ru/3d_shnik"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialLink}
+              title="Дзен"
+            >
+              <span className={styles.socialIcon} aria-hidden="true">
+                Д
+              </span>
+              <span className={styles.socialText}>
+                <strong>Дзен</strong>
+                <span>Видео и материалы по 3D, нейросетям</span>
+              </span>
+            </a>
+
+            <a
+              href="https://github.com/sega211"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialLink}
+              title="GitHub"
+            >
+              <span className={styles.socialIcon} aria-hidden="true">
+                GH
+              </span>
+              <span className={styles.socialText}>
+                <strong>GitHub</strong>
+                <span>Код и технические проекты</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div className={styles.footerAbout}>
+          <h2 className={styles.footerTitle}>О проекте</h2>
+          <p>
+            Демонстрационная работа, созданная в рамках тестового
+            задания. Каталог предназначен для демонстрации
+            возможностей веб-приложения и интеграции с Telegram.
+          </p>
+          <p className={styles.copyright}>
+            © 2026 · Демонстрационный проект
+          </p>
+        </div>
       </footer>
     </main>
   );
