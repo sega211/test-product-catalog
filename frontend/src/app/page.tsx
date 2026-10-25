@@ -190,7 +190,19 @@ export default function Home() {
                 <span>Мой сайт и портфолио</span>
               </span>
             </a>
-
+            <a
+              href="https://t.me/test_product_catalog_bot"
+              target="_blank"
+              className={styles.socialLink}
+              rel="noopener noreferrer"
+              title="Бот каталога"
+            >
+              <span className={styles.socialIcon} aria-hidden="true">↗</span>
+              <span className={styles.socialText}>
+                <strong>Бот каталога</strong>
+                <span>Telegram-бот каталога</span>
+              </span>
+            </a>
             <a
               href="https://vk.com/mnogodeto4ka_web"
               target="_blank"
