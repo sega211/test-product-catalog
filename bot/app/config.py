@@ -7,6 +7,7 @@ class Settings:
     bot_token: str
     admin_ids: frozenset[int]
     api_base_url: str
+    web_app_url: str
 
 
 def load_settings() -> Settings:
@@ -42,8 +43,15 @@ def load_settings() -> Settings:
     if not api_base_url:
         raise RuntimeError("Не задан API_BASE_URL — адрес backend сервера")
 
+    web_app_url = os.environ.get("WEB_APP_URL", "").strip().rstrip("/")
+    if not web_app_url.startswith("https://"):
+        raise RuntimeError(
+            "WEB_APP_URL должен содержать публичный HTTPS-адрес Mini App"
+        )
+
     return Settings(
         bot_token=token,
         admin_ids=admin_ids,
         api_base_url=api_base_url,
+        web_app_url=web_app_url,
     )

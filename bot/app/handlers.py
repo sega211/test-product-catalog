@@ -2,7 +2,12 @@ from aiogram import Bot, F, Router
 from aiogram.filters import Command, CommandStart
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
-from aiogram.types import Message
+from aiogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    Message,
+    WebAppInfo,
+)
 
 from app.config import Settings
 
@@ -21,15 +26,28 @@ class AddProductStates(StatesGroup):
 async def cmd_start(message: Message, settings: Settings) -> None:
     user_id = message.from_user.id if message.from_user else None
 
+    keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(
+                    text="Открыть каталог",
+                    web_app=WebAppInfo(url=settings.web_app_url),
+                )
+            ]
+        ]
+    )
+
     if user_id not in settings.admin_ids:
         await message.answer(
-            "Здравствуйте! Этот бот предназначен для управления каталогом товаров."
+            "У меня есть товар",
+            reply_markup=keyboard,
         )
         return
 
     await message.answer(
         "Здравствуйте! Вы вошли в панель управления каталогом.\n\n"
-        "Чтобы добавить товар, отправьте команду /add."
+        "Чтобы добавить товар, отправьте команду /add или нажмите скрепку",
+        reply_markup=keyboard,
     )
 
 
