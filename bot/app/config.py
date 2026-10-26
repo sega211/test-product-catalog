@@ -8,6 +8,7 @@ class Settings:
     admin_ids: frozenset[int]
     api_base_url: str
     web_app_url: str
+    telegram_proxy: str | None
 
 
 def load_settings() -> Settings:
@@ -48,10 +49,17 @@ def load_settings() -> Settings:
         raise RuntimeError(
             "WEB_APP_URL должен содержать публичный HTTPS-адрес Mini App"
         )
+    telegram_proxy = os.environ.get("TELEGRAM_PROXY", "").strip() or None
+
+    if telegram_proxy and not telegram_proxy.startswith("http://"):
+        raise RuntimeError(
+            "TELEGRAM_PROXY должен быть HTTP-прокси с адресом http://..."
+        )
 
     return Settings(
         bot_token=token,
         admin_ids=admin_ids,
         api_base_url=api_base_url,
         web_app_url=web_app_url,
+        telegram_proxy=telegram_proxy
     )
